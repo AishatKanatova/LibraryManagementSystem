@@ -16,12 +16,13 @@ public class Library {
         books.add(book);
     }
 
-    public void searchBook(String title) {
+    public Book searchByTitle(String title) {
         for (Book book : books) {
             if (book.getTitle().equalsIgnoreCase(title)) {
-                System.out.println(book);
+                return book;
             }
         }
+        return null;
     }
 
     public void sortBooksByYear() {

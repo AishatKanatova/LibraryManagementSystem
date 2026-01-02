@@ -15,13 +15,13 @@ public class LibraryMember extends Person {
         this.memberId = memberId;
     }
 
-    @Override
+
     public String getRole() {
         return "Library Member";
     }
 
     @Override
     public String toString() {
-        return "Member{name='" + name + "', id=" + memberId + "}";
+        return "LibraryMember{name='" + getName() + "', memberId=" + memberId + "}";
     }
 }
