@@ -1,23 +1,30 @@
+import java.util.Scanner;
+
 public class Main {
-    public static void main(String[] args){
-        Library library= new Library("Central Library", "Kabanbay Batyr 60");
+    public static void main(String[] args) {
 
-        Book book1= new Book("Abai Zholy", "Mukhtar Auezov", 1942);
-        Book book2= new Book("Ulpan", "Gabit Musrepov", 1974);
+        Scanner scanner = new Scanner(System.in);
 
-        LibraryMember member=new LibraryMember("Aishat", 77);
+        Library library = new Library("Central Library", "Kabanbay Batyr 60");
+
+        library.addBook(new Book("Abai Zholy", "Mukhtar Auezov", 1942));
+        library.addBook(new Book("Ulpan", "Gabit Musrepov", 1974));
+
+        LibraryMember member = new LibraryMember("Aishat", 77);
 
         library.displayInfo();
-        book1.displayInfo();
-        book2.displayInfo();
-        member.displayInfo();
+        System.out.println(member);
+        System.out.println("Role: " + member.getRole());
 
-        if(book1.getTitle().equals(book2.getTitle())&&
-                book1.getAuthor().equals(book2.getAuthor())) {
-            System.out.println("The books are the same");
-        } else {
-            System.out.println("The books are different");
-        }
+        System.out.print("Enter book title to search: ");
+        String title = scanner.nextLine();
+
+        library.searchBook(title);
+
+        System.out.println("\nBooks sorted by year:");
+        library.sortBooksByYear();
+        library.displayBooks();
+
+        scanner.close();
     }
-
 }

@@ -1,30 +1,27 @@
-public class LibraryMember {
-        public String name;
-        private int memberId;
+public class LibraryMember extends Person {
 
-        public LibraryMember(String name, int memberId){
-            this.name=name;
-            this.memberId=memberId;
+    private int memberId;
 
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public int getMemberId() {
-            return memberId;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public void setMemberId(int memberId) {
-            this.memberId = memberId;
-        }
-        public void displayInfo(){
-            System.out.println("Member: " + name + ", ID: " + memberId);
-        }
+    public LibraryMember(String name, int memberId) {
+        super(name);
+        this.memberId = memberId;
     }
 
+    public int getMemberId() {
+        return memberId;
+    }
+
+    public void setMemberId(int memberId) {
+        this.memberId = memberId;
+    }
+
+    @Override
+    public String getRole() {
+        return "Library Member";
+    }
+
+    @Override
+    public String toString() {
+        return "Member{name='" + name + "', id=" + memberId + "}";
+    }
+}
